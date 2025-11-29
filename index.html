@@ -1,20 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeatherNow - Live Weather</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="weather">
-        <h1 class="heading">"Weather Searching"</h1>
-        <input type="text" id="input-box">
-        <button onclick="getweather()" id="add-btn">GetWheather</button>
-        <div id="all-text">
 
+  <div class="wrapper">
+    <div class="weather-card">
+      <h1 class="title">WeatherNow</h1>
+      <p class="subtitle">Auto detects your location • Search any city</p>
+
+      <div class="search-box">
+        <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+        <button onclick="searchCity()">Search</button>
+      </div>
+
+      <div id="loading" class="loading">Detecting your location...</div>
+      <div id="error" class="error hidden"></div>
+
+      <div id="weather-info" class="weather-info hidden">
+        <div class="location">
+          <h2 id="city-name"></h2>
+          <p id="date-time"></p>
         </div>
+
+        <div class="weather-main">
+          <img id="weather-icon" src="" alt="Weather Icon">
+          <div class="temp" id="temperature"></div>
+          <div class="condition" id="condition"></div>
+        </div>
+
+        <div class="details">
+          <div class="detail-item">
+            <span>Feels Like</span>
+            <strong id="feels-like"></strong>°C
+          </div>
+          <div class="detail-item">
+            <span>Humidity</span>
+            <strong id="humidity"></strong>%
+          </div>
+          <div class="detail-item">
+            <span>Wind Speed</span>
+            <strong id="wind"></strong> km/h
+          </div>
+          <div class="detail-item">
+            <span>Pressure</span>
+            <strong id="pressure"></strong> mb
+          </div>
+        </div>
+
+        <button class="refresh-btn" onclick="getLocationWeather()">
+          Refresh Location
+        </button>
+      </div>
     </div>
-        <script src="index.js"></script>
+  </div>
+
+  <script src="index.js"></script>
 </body>
 </html>
